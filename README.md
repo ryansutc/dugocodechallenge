@@ -3,6 +3,7 @@ Code Challenge Samples
 
 -------------------------------------------
 Beer Exchange
+*Updated with a result that actually encompasses all random possibilities. I also removed the recursion in favor of a loop.*
 The beer exchange was a good brain tickler. I wrote it as a simple recursive loop that should work on a list of any size—not just 5 people. The shuffling of the list was done once at the start and the list was ‘walked’. I think that this is a pretty simple readable way to solve the problem. I randomized the ‘walking’ so that the result is not limited to a consistently patterned result. Although you could: that would likely optimize performance further and still be pseudo-random.
 I know that recursive loops aren’t great for memory use because you basically have to create a new stack each time you start a new call to the function. I read about something called Tail Call Optimisation but JavaScript doesn’t support. Found a code pattern at this site which explains a method called ‘Trampolining’ and used a function decorator (see tco) to implement it. I didn’t quite wrap my head around the exact internals of the process, but I see that it basically gets out of the recursive problem by porting the list of functions to a loop. This way each recursive call is ended and destroyed before the next one is started.
 That all said, I couldn’t get Mozilla or other browsers to crash on long lists of name data and I admit that I don’t know of a good way off the top of my head to quantify performance differences. Something to look into.
